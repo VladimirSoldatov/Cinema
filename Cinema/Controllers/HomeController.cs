@@ -11,11 +11,14 @@ namespace Cinema.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
+        public string Message { set; get; }
+        public CinemaContext db { set; get; }
+        public List<NameModel> users { set; get; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(CinemaContext cinemaContext)
         {
-            _logger = logger;
+            db = cinemaContext;
         }
 
         public IActionResult Index()
