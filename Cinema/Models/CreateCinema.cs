@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cinema.Models;
 
 namespace Cinema.Models
 {
@@ -9,46 +10,42 @@ namespace Cinema.Models
     {
         public static void Initialize(CinemaContext context)
         {
-            /*if (!context. Any())
+            
+            if (!context.films.Any())
             {
-                context.Phones.AddRange
+                  context.films.AddRange
+                      (
+                      new NameModel("Winter",4,4,"Фильм о зиме"),
+                                            
+                      new NameModel("Autem", 1, 1, "Фильм об осени"),
+                      new NameModel("Summer", 2,2,"Фильм о лете"),
+                      new NameModel("Spring", 3,3, "Фильм о весне")
+
+                      );
+            }
+            
+            if (!context.styles.Any())
+            {
+                context.styles.AddRange
                     (
-                    new Phone { Company = "Samsung", Model = "Galaxy S1", Price = 15000 },
-                    new Phone { Company = "Apple", Model = "IPhone 4S", Price = 25000 },
-                    new Phone { Company = "Apple", Model = "IPhone 4S", Price = 25000 },
-                    new Phone { Company = "Nokia", Model = "3310", Price = 1000 }
+                    new StyleModel { Name = "Комедия", Description = "Фильмы содержащие юмор" },
+                    new StyleModel { Name = "Боевик", Description = "Фильмы с перестрелками" },
+                  new StyleModel { Name = "Драма", Description = "Фильмы со страданиями героя" },
+                  new StyleModel { Name = "Фантастика", Description = "Фильмы с не правоподобным сюжетом" }
                     );
             }
-            if (!context.Users.Any())
+            if (!context.directors.Any())
             {
-                context.Users.AddRange
+                context.directors.AddRange
                     (
-                    new User { Name = "Leonid", ContactPhone = "+7915857474" },
-                    new User { Name = "Alla", ContactPhone = "+7915858471" },
-                    new User { Name = "Irina", ContactPhone = "+7928981251" }
-                    );
-            }
-            if (!context.Phones.Any())
-            {
-                context.Phones.AddRange
-                    (
-                    new Phone { Company = "Samsung", Model = "Galaxy S1", Price = 15000 },
-                    new Phone { Company = "Apple", Model = "IPhone 4S", Price = 25000 },
-                    new Phone { Company = "Apple", Model = "IPhone 4S", Price = 25000 },
-                    new Phone { Company = "Nokia", Model = "3310", Price = 1000 }
-                    );
-            }
-            if (!context.Users.Any())
-            {
-                context.Users.AddRange
-                    (
-                    new User { Name = "Leonid", ContactPhone = "+7915857474" },
-                    new User { Name = "Alla", ContactPhone = "+7915858471" },
-                    new User { Name = "Irina", ContactPhone = "+7928981251" }
+                    new DirectorModel { Name ="Cameron", Description="SciSy"},
+                    new DirectorModel { Name = "Merfy", Description = "Cam" },
+                    new DirectorModel { Name = "Kafka", Description = "Fashio" },
+                    new DirectorModel { Name = "Lenin", Description = "Communism" }
+
                     );
             }
             context.SaveChanges();
-          */
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Cinema.Controllers
     public class HomeController : Controller
     {
         // private readonly ILogger<HomeController> _logger;
-        public string Message { set; get; }
+        public List<NameModel> Message { set; get; }
         public CinemaContext db { set; get; }
         public List<NameModel> users { set; get; }
 
@@ -23,8 +23,10 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Message = db.films.ToList();
+            return View(Message);
         }
+
 
         public IActionResult Privacy()
         {
