@@ -11,6 +11,7 @@ namespace Cinema.Models
         public string Date { set; get; }
         public int NameModelId { set; get; }
         public List<SessionModel> sessions { set; get; }
+        
 
     }
 }

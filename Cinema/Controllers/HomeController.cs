@@ -15,6 +15,9 @@ namespace Cinema.Controllers
         public List<NameModel> Message { set; get; }
         public CinemaContext db { set; get; }
         public List<NameModel> users { set; get; }
+        public List<NameModel> Films { set; get; }
+        public List<StyleModel> Styles { set; get; }
+        public List<DirectorModel> Directors { set; get; }
 
         public HomeController(CinemaContext cinemaContext)
         {
@@ -23,8 +26,14 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            Message = db.films.ToList();
-            return View(Message);
+           
+           Films = db.films.ToList();
+           Styles = db.styles.ToList();
+           Directors = db.directors.ToList();
+            ViewBag.Films = Films;
+            ViewBag.Styles = Styles;
+            ViewBag.Directors = Directors;
+            return View();
         }
 
 

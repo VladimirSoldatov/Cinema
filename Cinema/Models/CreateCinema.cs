@@ -45,6 +45,14 @@ namespace Cinema.Models
 
                     );
             }
+            if (!context.films_In_Day.Any())
+            {
+                foreach (var film in context.films)
+                {
+                    context.films_In_Day.Add(new Film_in_Day { Date = DateTime.Now.ToShortDateString(), NameModelId = film.Id, sessions = new List<SessionModel>() });
+                }
+
+            }
             context.SaveChanges();
         }
     }

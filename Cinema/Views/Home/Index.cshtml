@@ -1,6 +1,7 @@
-﻿@model IEnumerable<Cinema.Models.NameModel>
+﻿@model CinemaContext
 @{
     ViewData["Title"] = "Home Page";
+
 }
 
 <div>
@@ -13,22 +14,24 @@
             <th>Описание</th>
             </tr>
         </thead>
-        @foreach(var film in Model)
+        
+            @foreach (var film in ViewBag.Films)
             {
     <tr>
         <td>
             @film.Name
         </td>
         <td>
-            @film.StyleId
+            @ViewBag.Styles.Find(film.StyleId).Name
         </td>
         <td>
-            @film.DirectorId
+            @ViewBag.Directors.Find(film.DirectorId).Name;
         </td>
         <td>
             @film.Description
         </td>
     </tr>
             }
+        
     </table>
 </div>
