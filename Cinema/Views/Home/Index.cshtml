@@ -22,19 +22,22 @@
             @film.Name
         </td>
         <td>
-            @foreach(var item in  ViewBag.Styles)
-            {
-                @if (item.Id == film.Id) @item.Name;
-            }
-        </td>
-        <td>
             @foreach (var item in ViewBag.Directors)
             {
                 @if (item.Id == film.Id)@item.Name;
             }
         </td>
         <td>
+            @foreach (var item in ViewBag.Styles)
+            {
+                @if (item.Id == film.Id)@item.Name;
+            }
+        </td>
+        <td>
             @film.Description
+        </td>
+        <td>
+            <a href ="/Home/Buy/@film.Id">Сеансы</a>
         </td>
     </tr>
             }

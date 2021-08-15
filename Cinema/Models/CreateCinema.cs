@@ -47,9 +47,20 @@ namespace Cinema.Models
             }
             if (!context.films_In_Day.Any())
             {
+
                 foreach (var film in context.films)
                 {
-                    context.films_In_Day.Add(new Film_in_Day { Date = DateTime.Now.ToShortDateString(), NameModelId = film.Id, sessions = new List<SessionModel>() });
+                    Film_in_Day film_In_Day = new Film_in_Day
+                    {
+                        Date = DateTime.Now.ToShortDateString(),
+                        NameModelId = film.Id,
+                        sessions = new List<SessionModel>()
+                    };
+                    film_In_Day.sessions.Add(new SessionModel("Утро","10:00"));
+                    film_In_Day.sessions.Add(new SessionModel("День", "14:00"));
+                    film_In_Day.sessions.Add(new SessionModel("Вечер", "18:00"));
+                    context.films_In_Day.Add(film_In_Day);
+  
                 }
 
             }

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Покупка телефон. Оформление заказа";
+
+}
+<h2>
+    @ViewData["Title"]
+</h2>
+<form method="post">
+    <input type="hidden" value="@ViewBag.PhoneId" name="PhoneId" />
+    <table class="table">
+        <tr>
+            <td>
+                Имя
+            </td>
+            <td>
+                <select name="UserId">
+
+                    @foreach (var film in ViewBag.Films_in_day)
+                                            {
+                        <option value="@film.NameModelId">
+                            @film.Id;
+                        </option>
+                    }
+                    </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Телефон
+            </td>
+            <td>
+                @foreach(var session in ViewBag.Sessions)
+                {
+                @if(session.Id == 2){
+                @foreach(var item in session.sessions)
+                @item.Time;
+                }
+                }
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+                <input type="submit" value="Отправить">
+            </td>
+        </tr>
+    </table>
+
+</form>
